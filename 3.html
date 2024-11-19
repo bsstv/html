@@ -24,3 +24,36 @@ function initFailed(errorEvent) {console.error('Unable to load the UI library!')
 document.addEventListener('shaka-ui-loaded', init); 
 document.addEventListener('shaka-ui-load-failed', initFailed); 
 </script>
+<script>
+function redirectToMySite() {
+  window.location.href = "https://img.freepik.com/free-vector/realistic-hand-drawn-fuck-you-symbol_23-2148684365.jpg";
+}
+
+function guardEmbedding() {
+  const topLocation = window.top?.location;
+  if (topLocation === undefined) {
+    redirectToMySite();
+    return;
+  }
+  try {
+    topLocation.hostname;
+  } catch (e) {
+    if (e instanceof DOMException) {
+      console.error("Access to this app from an unknown host is prohibited.");
+      redirectToMySite();
+      return;
+    }
+  }
+
+  if (
+    topLocation.hostname !== "bosstv.top"
+  ) {
+    redirectToMySite();
+    return;
+  }
+  if (topLocation.pathname.startsWith("/my-app")) {
+    redirectToMySite();
+    return;
+  }
+}
+guardEmbedding();</script>
