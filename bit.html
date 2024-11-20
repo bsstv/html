@@ -1,0 +1,49 @@
+<!-- Bitmovin Player -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bitmovin-player@8/bitmovinplayer.js"></script>
+<style>
+.player-wrapper {
+  /*width: 90%;*/
+  /*margin: 20px auto;*/
+    
+}
+.bmpui-ui-watermark {
+  display: none;
+}
+.bmpui-ui-hugeplaybacktogglebutton {
+    
+    border: #ffffff;
+}
+.bmpui-ui-container button{ 
+    border: none !important;
+}
+[type=button]:hover{background-color: transparent !important; }
+
+</style>
+
+<div class="player-wrapper">
+  <div id="tvs_player"></div>
+</div>
+
+<script type="text/javascript">
+  var conf = {
+    key: 'c3072596-eae6-4de5-ab9d-6eaf94350bd1',
+    analytics: {
+      key: '2514ca36-a525-4d67-829b-52c0f7782337',
+      title: 'TVS Live',
+      videoId: 'wizard-TVS_Live-1731749265546',
+    },
+    playback: {  
+        autoplay: true,  
+        muted: true
+
+    }
+   
+  };
+
+  var source = {
+    hls: 'https://melayu.eu.org/1.m3u8',
+  };
+
+  var player = new bitmovin.player.Player(document.getElementById('tvs_player'), conf);
+  player.load(source);
+</script>
